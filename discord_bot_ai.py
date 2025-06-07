@@ -3,7 +3,7 @@ import google.generativeai as genai
 import os
 
 # ai stuff
-genai.configure(api_key=os.environ['GEMINI_API_KEY'])
+genai.configure(api_key=os.environ.get('GEMINI_API_KEY'))
 
 
 # leave as is if you just want basic AI
@@ -56,4 +56,4 @@ class MyClient(discord.Client):
 intents = discord.Intents.default()
 intents.message_content = True
 client = MyClient(intents=intents)
-client.run(os.environ['DISCORD_BOT_TOKEN'])
+client.run(str(os.environ.get('DISCORD_BOT_TOKEN')))
